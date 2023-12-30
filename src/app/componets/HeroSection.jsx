@@ -38,10 +38,10 @@ const HeroSection = ({ name }) => {
             aliquam ab, velit excepturi ipsum dolorum sint fugit.
           </p>
           <div>
-            <button className="w-full sm:w-fit bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 hover:bg-slate-200 text-white px-6 py-3 rounded-full lg:mr-4">
+            <button className="w-full sm:w-fit sm:mr-2 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 hover:bg-slate-200 text-white px-6 py-3 rounded-full lg:mr-4">
               Hire Me
             </button>
-            <button className=" w-full sm:w-fit mt-4 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 px-1 py-1  text-white rounded-full">
+            <button className=" w-full sm:w-fit  mt-4 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 px-1 py-1  text-white rounded-full">
               <span className="block bg-[#121212] hover:bg-slate-800 rounded-full px-5 py-2 ">
                 Download CV
               </span>
