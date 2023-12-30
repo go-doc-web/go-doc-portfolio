@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { XMarkIcon, Bars3Icon } from "@heroicons/react/24/solid";
 
 import NavLink from "./NavLink";
+import MenuOverlay from "./MenuOverlay";
 
 const navLinks = [
   { id: 1, title: "About", path: "#about" },
@@ -14,12 +15,9 @@ const navLinks = [
 const NavBar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
 
-  const handleButtonHam = () => {
-    setNavbarOpen(!navbarOpen);
-  };
   return (
-    <nav className="fixed top-0 left-0 right-0 z-10 bg-[#121212] bg-opacity-90 border-b border-[#33353F]  px-4 ">
-      <div className="flex  flex-wrap items-center justify-between mx-auto py-4">
+    <nav className="fixed top-0 left-0 right-0 z-10 bg-[#121212] bg-opacity-100 border-b border-[#33353F]  px-4 ">
+      <div className="flex  flex-wrap items-center justify-between mx-auto px-4 py-2">
         <Link
           className="text-2xl md:text-5xl text-white font-semibold "
           href={"/"}
@@ -27,16 +25,16 @@ const NavBar = () => {
           GO.DOC
         </Link>
         <div className="mobile-menu block md:hidden">
-          {navbarOpen ? (
+          {!navbarOpen ? (
             <button
-              onClick={handleButtonHam}
+              onClick={() => setNavbarOpen(true)}
               className="text-slate-200 flex items-center  px-3 py-2 border border-slate-200 rounded-md hover:text-white hover:border-white"
             >
               <Bars3Icon className="h-5 w-5" />
             </button>
           ) : (
             <button
-              onClick={handleButtonHam}
+              onClick={() => setNavbarOpen(false)}
               className="text-slate-200 flex items-center  px-3 py-2 border border-slate-200 rounded-md hover:text-white hover:border-white"
             >
               <XMarkIcon className="h-5 w-5" />
@@ -53,6 +51,7 @@ const NavBar = () => {
           </ul>
         </div>
       </div>
+      {navbarOpen ? <MenuOverlay links={navLinks} /> : null}
     </nav>
   );
 };
